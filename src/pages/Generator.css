@@ -1,0 +1,39 @@
+.main-window{
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.generator-header {
+    background-color: #dddddd!important;
+}
+
+.persons-table{
+    width: 1800px;
+}
+
+.persons-table-num{
+    width: 40px;
+}
+
+.persons-table-id{
+    width: 350px;
+}
+
+.persons-table-name{
+    width: 250px;
+}
+
+.persons-table-adress{
+    width: 800px;
+}
+
+.persons-table-phone{
+    width: 180px;
+}
+
+
+#shuffle{
+    cursor: pointer;
+}
