@@ -3,5 +3,4 @@ export interface IPerson{
     fullName: string
     address: string
     phone: string
-    hash: number
 }

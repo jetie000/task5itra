@@ -22,46 +22,55 @@ interface PersonState {
 export const usePersonStore = create<PersonState>((set, get) => ({
     persons: [],
     setPersons: async () => {
-        let response = await fetch(variables.API_URL + '/person/get?seed=' + get().seed + '&page=' + get().page + '&locale=' + get().region + '&countryLocal=' + variables.countryLocal[variables.locales.indexOf(get().region)]);
-        let data = await response.json();
-        set((state) => ({
-            persons: state.persons.concat(data),
-            personsMistakes: state.personsMistakes.concat(data)
-        }))
-    },
-    setNewPersons: async () => {
-        let tempArr: IPerson[] = [];
-        const PERSONS_INIT_SETS = 3
-        for (let i = 0; i < PERSONS_INIT_SETS; i++) {
+        try {
             let response = await fetch(variables.API_URL + '/person/get?seed=' + get().seed + '&page=' + get().page + '&locale=' + get().region + '&countryLocal=' + variables.countryLocal[variables.locales.indexOf(get().region)]);
             let data = await response.json();
-            tempArr = tempArr.concat(data)
-            get().incPage();
+            set((state) => ({
+                persons: state.persons.concat(data),
+                personsMistakes: state.personsMistakes.concat(data)
+            }))
+        } catch (error) {
+            alert(error);
         }
-        set({
-            persons: tempArr,
-        })
+
+    },
+    setNewPersons: async () => {
+        try {
+            let tempArr: IPerson[] = [];
+            const PERSONS_INIT_SETS = 3
+            for (let i = 0; i < PERSONS_INIT_SETS; i++) {
+                let response = await fetch(variables.API_URL + '/person/get?seed=' + get().seed + '&page=' + get().page + '&locale=' + get().region + '&countryLocal=' + variables.countryLocal[variables.locales.indexOf(get().region)]);
+                let data = await response.json();
+                tempArr = tempArr.concat(data)
+                get().incPage();
+            }
+            set({
+                persons: tempArr,
+            })
+        } catch (error) {
+            alert(error)
+        }
+
     },
     personsMistakes: [],
     setPersonsMistakes: () => {
         let chance = 0;
-        if(get().mistakesNum - Math.floor(get().mistakesNum) >= 0){
+        if (get().mistakesNum - Math.floor(get().mistakesNum) >= 0) {
             chance = get().mistakesNum - Math.floor(get().mistakesNum);
-            if(Math.random() <= chance){
+            if (Math.random() <= chance) {
                 chance = 1;
             }
-            else{
+            else {
                 chance = 0;
             }
         }
         let tempArr: IPerson[] = [];
         get().persons.forEach((person) => {
-            let tempPerson:IPerson = {
+            let tempPerson: IPerson = {
                 id: person.id,
                 fullName: person.fullName,
                 address: person.address,
-                phone: person.phone,
-                hash: person.hash
+                phone: person.phone
             };
             for (let i = 0; i < Math.floor(get().mistakesNum) + chance; i++) {
                 const MISTAKES_NUM = 3

@@ -1,8 +1,5 @@
 export const variables = {
-    // API_URL: "https://jetie000-001-site1.ctempurl.com/api",
-    // PHOTO_URL: "https://jetie000-001-site1.ctempurl.com/Photos/",
-    // SOCKET_URL : "wss://jetie000-001-site1.ctempurl.com/chat-hub",
-    API_URL: "https://localhost:7121/api",
+    API_URL: "https://jeytikon-001-site1.etempurl.com/api",
     $SEED: "seed",
     $REGION: "region",
     $MISTAKES_NUM: "mistakes_num",
