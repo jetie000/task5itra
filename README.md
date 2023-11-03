@@ -1,3 +1,3 @@
-# Task5itra
+# Fake datatable
 FrontEnd: React, Typescript, Bootstrap, Zustand(State manager). BackEnd: ASP.NET, BOGUS (for faking data).  
 Click the [link](https://task5itra.vercel.app/) to see website
