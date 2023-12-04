@@ -5,7 +5,7 @@
 
 
 FrontEnd: React, Typescript, Bootstrap, Zustand(State manager). BackEnd: ASP.NET, BOGUS (for faking data).  
-Click the [link](https://task5itra.vercel.app/) to see website.
+Click the [link](https://task5itra.vercel.app/) to see website. (SERVER HOSTING IS EXPIRED)
 
 
 С помощью данной таблицы можно сгенерировать бесконечно дополняемые фейковые данные людей с 4 разных стран. При каждом скролле вниз будет подгружаться 10 записей.
